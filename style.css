@@ -36,6 +36,7 @@ length: 150px;
 
 
 .contenedor{
+   display: flex;
   margin: auto;
     width: 70%;  
     padding: 0px;
