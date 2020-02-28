@@ -8,11 +8,15 @@ var candi = [];
 
 botones.addEventListener("click", darVuelta);
 botones.addEventListener("click", tranquiloEh);
+botones.addEventListener("click", noMasDe2);
 
 //botones.addEventListener("click", quienEs);
 //botones.addEventListener("click", contarClicks);
 
 //botones.addEventListener("click", Comparar);
+
+
+
 
 
 
@@ -74,11 +78,11 @@ botones.addEventListener("click", tranquiloEh);
 															document.getElementsByName(candi[0])[1].src.match(/^(.*\/)/)[1]+"urna.jpg"
 
 
-															}, 1200);
+															}, 1100);
 
 														setTimeout(function(){
 															
-														candi=[]}, 1201);// vacio el candi para que quede listo para una proxima evaluacion
+														candi=[]}, 1101);// vacio el candi para que quede listo para una proxima evaluacion
 														
 														}
 											}else{//si solo elegi un candidato todavia, o sea, el candi.length=1
@@ -95,69 +99,27 @@ function tranquiloEh(u){
 u.preventDefault();
 
 	}			
-}							
+}				
 
 
+function noMasDe2(u){
+	var losInputs=document.getElementsByTagName('input') //hay 18 fichas
 
-	// 								} else {
-	// 							console.log("aca iria urna");
-	// 							li.target.src = dondeIzq+"urna.jpg";
-	// 										}
-	// 						}
-	// 					}
-	// function Comparar(u){
+ 	if (candi.length==2){  // si hay dos fichas siendo evaluando no podes tocar otra
+ 		 for (var i = 0; i < 18; i++) { // inhabilito todas cuando ocurre una evaluacion
+ 		 		losInputs[i].disabled=true;
 
-	// 		var candi1=u.target.name;
-	// 		var candiDoble=document.getElementsByName(candi1);
-			
-	// if (u.target.type == "image" ){
-	// 	candi.push(candi1)
+				setTimeout(function(){		//	vuelvo a habilitarlas al mismo tiempo que el array candi se vacia											
+							for (var i = 0; i < 18; i++) {
+ 					 		losInputs[i].disabled=false;
 
-	// 		if (candi.length==2) {
-	// 					if (candi[0]==candi[1]) {
-	// 							for ( i=0; i<2; i++) {
-	// 							candiDoble[0].outerHTML='<img src="file:///C:/Users/Pablo/Dropbox/EDUCACIONIT/memori/fotos/axel.jpg">';
-	// 							candi=[];
-	// 							// // // candi1Doble[i].target.outerHTML='<img src="file:///C:/Users/Pablo/Dropbox/EDUCACIONIT/memori/fotos/axel.jpg">';
-	// 								}
-								//u.target.outerHTML='<img src="file:///C:/Users/Pablo/Dropbox/EDUCACIONIT/memori/fotos/axel.jpg">';
+							}
+						}, 1101)
+ 		
+  
+	}
 
 							
-			// ME PA QUE CUANDO TOCO UNA FICHA, MEJOR LA CONVIERTO EN IMAGEN. DE ULTIMA SI COINCIDEN LA DEJO ASI
-			//TAMBIEN HAY QUE PONERLE UN TOPE A LA CANTIDAD DE IMAGENES QUE SE PUEDEN TOCAR
-
-
-
-
-
-		
-
-			// if (candi==[]){
-			// 	candi[0]=candi1;
-			// 	}else{
-			// 	candi[1]=candi1;	
-			// 	candi2=candi[1];
-			// 	}
-			
-		
-			// if (!candi2=='') {//si todavia no elegimos 2do candidatos
-			// 		if (candi1==candi2) {//si los candidatos son iguales
-			// 			u.target.i
-
-
-
-
-			// }
-
-
-
-
-
-
-
-
-
-
-
-
+	}
+}
 
