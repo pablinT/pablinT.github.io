@@ -15,7 +15,5 @@ SQL
 
 Repos compartidos:
 
-<a href="
-https://pablint.github.io/memori.html
-">Podemos aprender (a hacer jueguitos en JS)
+<a href="https://github.com/pablinT/Javascript-inicial.git">Podemos aprender (a hacer jueguitos en JS)
 </a>
