@@ -17,7 +17,6 @@ https://pablint.github.io/albertovscorona.html
 
 
 
-SQL
 
 
 Repos compartidos:
