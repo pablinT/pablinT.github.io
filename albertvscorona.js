@@ -1,4 +1,4 @@
-//DOM
+//Variables
 var FPS=40;
 
 
@@ -79,6 +79,15 @@ function cargaImagenes(){
 	
 }
 
+function inicializa(){ // probar despues de mandar estas 2 variables pa arriba
+	canvas=document.getElementById('canvas');
+	ctx=canvas.getContext('2d');
+	cargaImagenes();
+
+}
+
+
+
 
 function dibujaFondo(){
 	ctx.drawImage(imgBsas,fondo.x,0,700,300,0,fondo.y,700,30);
@@ -96,8 +105,6 @@ function colisionAlbert(){
 	}
 }
 
-
-
 function dibujaCorona(){
 	ctx.drawImage(imgCorona,0,0,939,939,corona.x,corona.y,50,50);
 
@@ -114,9 +121,7 @@ function logicaFondo(){//como se mueve el fondo
 
 	} else {
 		fondo.x+=nivel.velocidad;
-
 	}
-
 }
 
 
@@ -186,13 +191,7 @@ function gravedad(){
 
 
 
-function inicializa(){ // probar despues de mandar estas 2 variables pa arriba
 
-	canvas=document.getElementById('canvas');
-	ctx=canvas.getContext('2d');
-	cargaImagenes();
-
-}
 
 
 function puntuacion(){//como se mueve el corona
