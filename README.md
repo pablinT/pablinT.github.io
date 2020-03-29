@@ -11,7 +11,7 @@ https://pablint.github.io/memori.html
 </a>
 
 <a href="
-https://pablint.github.io/albertovscorona.html
+https://pablint.github.io/albertvscorona.html
 "> Alberto vs Corona - Update 29.03.2020
 </a>
 
