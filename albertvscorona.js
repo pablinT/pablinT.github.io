@@ -54,8 +54,6 @@ function salta(evento){ //
 					avion.x=ancho+100;
 
 			}
-
-
 		}
 
 	}
@@ -87,23 +85,16 @@ function inicializa(){ // probar despues de mandar estas 2 variables pa arriba
 }
 
 
+function dibujaAlbert(){
+	ctx.drawImage(imgAlbert,0,0,160,160,100,presi.y,50,50);
 
-
+}
 function dibujaFondo(){
 	ctx.drawImage(imgBsas,fondo.x,0,700,300,0,fondo.y,700,30);
 
 }
 
-function dibujaAlbert(){
-	ctx.drawImage(imgAlbert,0,0,160,160,100,presi.y,50,50);
 
-}
-function colisionAlbert(){
-	if (nivel.muerto== true) {
-	console.log('mori');
-
-	}
-}
 
 function dibujaCorona(){
 	ctx.drawImage(imgCorona,0,0,939,939,corona.x,corona.y,50,50);
@@ -213,18 +204,6 @@ function puntuacion(){//como se mueve el corona
 
              //--------//  Bucle principal -------
 
-setInterval(function(){
-	principal();
-
-}, 1000/FPS)
-
-
-function borraCanvas(){
-	canvas.width=ancho;
-	canvas.height=alto;
-
-}
-
 function principal(){
 	borraCanvas();
 	gravedad();
@@ -239,6 +218,17 @@ function principal(){
 	dibujaCorona();
 	dibujaAlbert();
 	puntuacion();
+}
 
+
+setInterval(function(){
+	principal();
+
+}, 1000/FPS)
+
+
+function borraCanvas(){
+	canvas.width=ancho;
+	canvas.height=alto;
 
 }
