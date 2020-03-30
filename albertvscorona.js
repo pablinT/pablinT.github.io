@@ -208,7 +208,7 @@ function principal(){
 	borraCanvas();
 	gravedad();
 	colision();
-	colisionAlbert()
+	//colisionAlbert()
 	logicaFondo();
 	//console.log('principal')
 	contagio();
