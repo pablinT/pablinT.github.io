@@ -1,7 +1,7 @@
 -*-*-*-*-* En construcción -*-*-*-*-*-*
 
 
-Javascript
+JavaScript
 
 <a href="
 https://pablint.github.io/memori.html
