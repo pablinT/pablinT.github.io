@@ -1,4 +1,4 @@
-//Variables
+//DOM
 var FPS=40;
 
 
@@ -23,6 +23,7 @@ var fondo={x:0, y:piso+35};
 
 //Eventos
 document.addEventListener("keydown", salta);
+document.addEventListener("click", salta);
 
 
 
@@ -38,8 +39,8 @@ function saltar(){
 
 
 function salta(evento){ // 
-		if (evento.keyCode == 32) {
-			console.log('salta')
+		if (evento.keyCode == 32 || evento.button == 0 ) {
+			//console.log('salta')
 			
 
 			if (nivel.muerto== false){
@@ -54,6 +55,8 @@ function salta(evento){ //
 					avion.x=ancho+100;
 
 			}
+
+
 		}
 
 	}
@@ -78,6 +81,7 @@ function cargaImagenes(){
 }
 
 function inicializa(){ // probar despues de mandar estas 2 variables pa arriba
+
 	canvas=document.getElementById('canvas');
 	ctx=canvas.getContext('2d');
 	cargaImagenes();
@@ -85,16 +89,26 @@ function inicializa(){ // probar despues de mandar estas 2 variables pa arriba
 }
 
 
-function dibujaAlbert(){
-	ctx.drawImage(imgAlbert,0,0,160,160,100,presi.y,50,50);
 
-}
+
+
+
+
 function dibujaFondo(){
 	ctx.drawImage(imgBsas,fondo.x,0,700,300,0,fondo.y,700,30);
 
 }
 
+function dibujaAlbert(){
+	ctx.drawImage(imgAlbert,0,0,160,160,100,presi.y,50,50);
 
+}
+/*function colisionAlbert(){
+	if (nivel.muerto== true) {
+	console.log('mori');
+
+	}
+}*/
 
 function dibujaCorona(){
 	ctx.drawImage(imgCorona,0,0,939,939,corona.x,corona.y,50,50);
@@ -112,7 +126,9 @@ function logicaFondo(){//como se mueve el fondo
 
 	} else {
 		fondo.x+=nivel.velocidad;
+
 	}
+
 }
 
 
@@ -146,16 +162,26 @@ function contagio(){//como se mueve el corona
 
 
 function colision(){ // probar despues de mandar estas 2 variables pa arriba
-	if (corona.x >= 90 && corona.x <=150 ) {
+	if (corona.x >= 130 && corona.x <=150 ) {
 		if (presi.y>= piso){
 			nivel.muerto=true;
 			nivel.velocidad=0;
 			avion.velocidad=0;
-
-
-
 		}
+
 	}
+
+	if (corona.x >= 90 && corona.x <=150 	) {
+		if (presi.y>0 &&corona.y-presi.y<= 55	){
+			console.log('UY')
+			nivel.muerto=true;
+			nivel.velocidad=0;
+			avion.velocidad=0;
+		}
+
+	}
+
+
 }
 
 
@@ -184,7 +210,6 @@ function gravedad(){
 
 
 
-
 function puntuacion(){//como se mueve el corona
 	ctx.font="30px impact";
 	ctx.fillStyle="#0CB7F2";
@@ -201,8 +226,38 @@ function puntuacion(){//como se mueve el corona
 }
 
 
+function pasarNivel1(){
+	if (nivel.marcador == 2 ){
+		ctx.font = "60px impact";
+		ctx.fillText("segunda semana",200,150);
+		nivel.velocidad=nivel.velocidad+1
+
+	}
+}
+function pasarNivel2(){
+	if (nivel.marcador == 7 ){
+		ctx.font = "60px impact";
+		ctx.fillText("tercer semana",200,150);
+	}
+}
+
+
+
+
 
              //--------//  Bucle principal -------
+
+setInterval(function(){
+	principal();
+
+}, 1000/FPS)
+
+
+function borraCanvas(){
+	canvas.width=ancho;
+	canvas.height=alto;
+
+}
 
 function principal(){
 	borraCanvas();
@@ -218,17 +273,7 @@ function principal(){
 	dibujaCorona();
 	dibujaAlbert();
 	puntuacion();
-}
+	pasarNivel1();
 
-
-setInterval(function(){
-	principal();
-
-}, 1000/FPS)
-
-
-function borraCanvas(){
-	canvas.width=ancho;
-	canvas.height=alto;
 
 }
