@@ -1,7 +1,13 @@
 
 //1-DOM
 const botones=document.querySelector("div.fichas");
+
+var lugares=document.getElementsByTagName("input"); // aca tomo los inputs para cambiarles el name 
 var candi = [];
+
+var p=["j1","j2","j3","j4","j5","j6","j7","j8","j9","j1","j2","j3","j4","j5","j6","j7","j8","j9"];
+
+
 
 var canvas=document.getElementById('canvas');
 var	ctx=canvas.getContext('2d');
@@ -19,7 +25,7 @@ botones.addEventListener("click", noMasDe2);
 
 canvas.addEventListener("click", sumarAdentro);// USAR ESTOS DOS PARA PUNTAJES
 
-canvas.addEventListener("click", paveando);//USAR ESTOS DOS PARA PUNTAJES
+//canvas.addEventListener("click", paveando);//USAR ESTOS DOS PARA PUNTAJES
 //botones.addEventListener("click", quienEs);
 //botones.addEventListener("click", contarClicks);
 
@@ -31,14 +37,44 @@ canvas.addEventListener("click", paveando);//USAR ESTOS DOS PARA PUNTAJES
 
 
 //3-Callbacks FUNCIONES QUE LAS EJECUTA EL MOTOR DE JAVASCRIPT
-	function lala(u){ // ESTO ES UN INTENTO PARA ACOMODAR LA CHANCHADA DE ABAJO
-		var quien=u.target.name;
-    	
-	    	var lala=u.target.src;
-	    	var dondeDer=donde.match(/.*\/(.*)$/)[1];// me quedo con la parte derecha, el nombre de la imagen
-	    	var dondeIzq=donde.match(/^(.*\/)/)[1];//me quedo con la parte izquierda, todo menos 'imagen.jpg'
 
-	}
+
+
+		function shuffle(array) {
+			  var currentIndex = array.length, temporaryValue, randomIndex;
+
+			  // Mientras queden elementos a mezclar...
+			  while (0 !== currentIndex) {
+
+			    // Seleccionar un elemento sin mezclar...
+			    randomIndex = Math.floor(Math.random() * currentIndex);
+			    currentIndex -= 1;
+
+			    // E intercambiarlo con el elemento actual
+			    temporaryValue = array[currentIndex];
+			    array[currentIndex] = array[randomIndex];
+			    array[randomIndex] = temporaryValue;
+			  }
+
+			  return array;
+			}
+
+
+	function inicializa(){ // cuando se carga la pagina arranca la funcion que hace el sorteo de los candidatos
+			
+			p=shuffle(p);
+
+			for (var i = 0; i < 19 ; i++) {
+				//console.log(lugares[i].name);
+				lugares[i].name=p[i];
+			}
+
+}
+
+
+
+
+
 function sumarAdentro(u){
 	//var aVer=u.target.type;
 	//console.log(suma1);
