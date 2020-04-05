@@ -1,7 +1,12 @@
 
 //1-DOM
 const botones=document.querySelector("div.fichas");
+var lugares=document.getElementsByTagName("input"); // aca tomo los inputs para cambiarles el name 
+
 var candi = [];
+var p=["cris", "mariu", "axel", "macri", "lilita", "fara", "alberto", "massa", "nico","cris", "mariu", "axel", "macri", "lilita", "fara", "alberto", "massa", "nico"];
+
+
 
 
 //2-Eventos
@@ -21,7 +26,7 @@ botones.addEventListener("click", noMasDe2);
 
 
 //3-Callbacks FUNCIONES QUE LAS EJECUTA EL MOTOR DE JAVASCRIPT
-	function lala(u){ // ESTO ES UN INTENTO PARA ACOMODAR LA CHANCHADA DE ABAJO
+/*	function lala(u){ // ESTO ES UN INTENTO PARA ACOMODAR LA CHANCHADA DE ABAJO
 		var quien=u.target.name;
     	
 	    	var lala=u.target.src;
@@ -29,12 +34,42 @@ botones.addEventListener("click", noMasDe2);
 	    	var dondeIzq=donde.match(/^(.*\/)/)[1];//me quedo con la parte izquierda, todo menos 'imagen.jpg'
 
 	}
+*/
+
+		function shuffle(array) {
+			  var currentIndex = array.length, temporaryValue, randomIndex;
+
+			  // Mientras queden elementos a mezclar...
+			  while (0 !== currentIndex) {
+
+			    // Seleccionar un elemento sin mezclar...
+			    randomIndex = Math.floor(Math.random() * currentIndex);
+			    currentIndex -= 1;
+
+			    // E intercambiarlo con el elemento actual
+			    temporaryValue = array[currentIndex];
+			    array[currentIndex] = array[randomIndex];
+			    array[randomIndex] = temporaryValue;
+			  }
+
+			  return array;
+			}
 
 
+	function inicializa(){ // cuando se carga la pagina arranca la funcion que hace el sorteo de los candidatos
+			
+			p=shuffle(p);
+
+			for (var i = 0; i < 19 ; i++) {
+				lugares[i].name=p[i]
+			}
+
+}
 
 
 	function darVuelta(li){ 
 	    //var quien=li.originalTarget.value;
+
 	    	var quien=li.target.name;
 	    	
 	    	var donde=li.target.src;
