@@ -5,7 +5,7 @@ JavaScript
 
 <a href="
 https://pablint.github.io/memori.html
-">Memory gaim politico - Elecciones 2019
+">Memory gaim politico - Elecciones Argentina 2019
 </a>
 
 En producción:
