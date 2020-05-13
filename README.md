@@ -22,7 +22,7 @@ https://pablint.github.io/joseMemory.html
 
 Repositorios: 
 <a href="https://github.com/pablinT
-"> Mi git hub - Update 05.04.2020
+"> Mi git hub 
 </a>
 
 
